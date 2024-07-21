@@ -1,7 +1,11 @@
 import customtkinter;
 import sqlite3;
 from tkinter import messagebox;
-
+'''COISAS PARA FAZER 
+    Fazer a pagina home
+    fazer a pagina de gerenciamento 
+    
+'''
 customtkinter.set_appearance_mode("dark");
 customtkinter.set_default_color_theme('dark-blue');
 
@@ -39,27 +43,56 @@ def menu():
     messagebox.showinfo('Login','Login efetuado com sucesso!!');
     
     #nova janela de menu
+
     janela.destroy();
     menu= customtkinter.CTk();
-    menu.geometry("850x550+530+220");
+    menu.geometry("850x550+400+200");
     
-    #tabs
+    #criacao tabs
     tabview = customtkinter.CTkTabview(menu, width=850, height=550);
     tabview.pack();
-    tabview.add("Home");
-    tabview.add("Cadastrar Produtos");
-    tabview.add("Gerenciamento");
+    home_tab = tabview.add("Home");
+    produto_tab = tabview.add("Cadastrar Produtos");
+    geren_tab = tabview.add("Gerenciamento");
     tabview.tab("Home").grid_columnconfigure(0,weight=1);
     tabview.tab("Cadastrar Produtos").grid_columnconfigure(0,weight=2);
     tabview.tab("Gerenciamento").grid_columnconfigure(0,weight=3);
-
-   
-    msg_menu = customtkinter.CTkLabel(menu, text='Bem Vindo a StockSync');
-    msg_menu.pack(padx=10,pady=10);
-
+    #funcoes para conteudo das tabs do menu 
+    home(home_tab);
+    gerenciamento(geren_tab);
+    cad_produtos(produto_tab);
     
     menu.mainloop();
 
+#tab home 
+def home(tabh_func):
+    menu_btn = customtkinter.CTkButton(tabh_func,text="Menu");
+    menu_btn.pack();
+
+def gerenciamento(tabg_func):
+    menu_btn = customtkinter.CTkButton(tabg_func,text="Gerenciamento");
+    menu_btn.pack();
+
+def cad_produtos(tabc_func):
+    global entry_codigo_produto,entry_nome_produto,entry_preco_produto;
+    #frame para dividir a pagina em dois 
+    frame1_cad = customtkinter.CTkFrame(master = tabc_func, width=850,height=550);
+    frame1_cad.place(x=0,y=0);
+    frame2_cad = customtkinter.CTkFrame(master = tabc_func, width=850,height=550);
+    frame2_cad.place(x=425,y=0);
+
+    #formulario para cadastro dos produtos
+    entry_nome_produto = customtkinter.CTkEntry(frame1_cad, width=400,height=39, placeholder_text="nome produto");
+    entry_nome_produto.pack(pady=(50,15), padx=15);
+
+    entry_codigo_produto = customtkinter.CTkEntry(frame1_cad, width=400,height=39, placeholder_text="codigo do produto");
+    entry_codigo_produto.pack(pady=15, padx=15);
+
+    entry_preco_produto = customtkinter.CTkEntry(frame1_cad, width=400,height=39, placeholder_text="preco produto");
+    entry_preco_produto.pack(pady=15, padx=15);
+    
+    menu_btn = customtkinter.CTkButton(frame1_cad,text="Cadastrar produto", command=cadastrar_produtos_banco);
+    menu_btn.pack();
 #janela inicial
 def janela_principal():
     global entry_login_senha;
@@ -97,6 +130,15 @@ def janela_principal():
    
  
     janela.mainloop();
+
+def cadastrar_produtos_banco():
+   nome_produto = entry_nome_produto.get();
+   preco_produto = 10.0;
+   situacao = 1;
+   quantidade = 0;
+   codigo_produto = entry_codigo_produto.get();
+   insert_produtos_banco = cursor.execute('''INSERT INTO produtos(nome,descricao,preco,situacao,quantidade) values(?,?,?,?,?)''',(nome_produto,codigo_produto,preco_produto,situacao,quantidade));
+   conexao.commit();
 
 #ordem de execucao quando roda o app
 def main():
