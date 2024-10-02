@@ -1,13 +1,13 @@
 Stock Sync - Sistema de Gerenciamento de Estoques
-Bem-vindo ao Stock Sync, um sistema de gerenciamento de estoques desenvolvido como parte dos projetos acadêmicos das disciplinas de Engenharia de Software, Estruturas de Dados e Algoritmos (EDE), e Programação Orientada a Objetos (POO) no curso de Análise e Desenvolvimento de Sistemas.
+Bem-vindo ao Stock Sync, um sistema de gerenciamento de estoques desenvolvido como parte dos projetos acadêmicos das disciplinas de Engenharia de Software no curso de Análise e Desenvolvimento de Sistemas.
 
 📚 Sobre o Projeto
-O Stock Sync é uma aplicação desenvolvida com foco na gestão eficiente de estoques. O sistema permite o controle completo de produtos, incluindo adição, remoção, atualização e visualização de informações em tempo real, com uma interface amigável e responsiva.
+O Stock Sync é uma aplicação desenvolvida com foco na gestão eficiente de estoques de um Lava Jato. O sistema permite o controle completo de produtos, incluindo adição, remoção, atualização e visualização de informações em tempo real, com uma interface amigável e responsiva.
 
 Objetivos do Projeto:
 Prover uma plataforma simples e eficiente para gerenciamento de estoques.
 Desenvolver utilizando boas práticas de Programação Orientada a Objetos (POO) com Python.
-Explorar e aplicar conceitos de Engenharia de Software e Estruturas de Dados.
+Explorar e aplicar conceitos de Engenharia de Software.
 Implementar uma interface de usuário moderna utilizando HTML, CSS e JavaScript.
 
 
