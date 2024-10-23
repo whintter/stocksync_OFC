@@ -24,9 +24,3 @@ Relatórios: Geração de relatórios de movimentação de produtos.
 Interface Responsiva: Interface de fácil navegação, adaptável para dispositivos móveis.
 Pesquisa e Filtros: Sistema de busca inteligente para localizar rapidamente itens no estoque.
 
-
-🚀 Como Executar o Projeto
-Pré-requisitos:
-Python 3.x instalado no sistema.
-Gerenciador de pacotes pip.
-Navegador de internet (para acessar a interface web).
